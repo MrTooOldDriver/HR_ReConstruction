@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR_ReConstruction", "HR_ReConstruction\HR_ReConstruction.csproj", "{093D0EE9-A707-4E69-8ADC-F4F19EE2FC82}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{093D0EE9-A707-4E69-8ADC-F4F19EE2FC82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{093D0EE9-A707-4E69-8ADC-F4F19EE2FC82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{093D0EE9-A707-4E69-8ADC-F4F19EE2FC82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{093D0EE9-A707-4E69-8ADC-F4F19EE2FC82}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F620B862-E02D-4A3B-A40B-21CD8A015BB7}
+	EndGlobalSection
+EndGlobal
