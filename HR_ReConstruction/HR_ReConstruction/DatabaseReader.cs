@@ -49,6 +49,7 @@ namespace HR_ReConstruction
                 colNumber = convertByte(colNumber);
 
                 pixNumber = rowNumber * colNumber;
+                MessageBox.Show(pixNumber.ToString());
 
                 pixInfo = new byte[pixNumber + 1];
                 for (int i = 0; i < pixNumber; i++)
@@ -68,7 +69,6 @@ namespace HR_ReConstruction
                 }
 
                 imageStreamLocation = imageStream.Position;
-                //MessageBox.Show(imageStream.Position.ToString());
             }
 
             imageStream.Close();
@@ -92,9 +92,6 @@ namespace HR_ReConstruction
             }
 
             lableStream.Close();
-
-            //MessageBox.Show(lableStreamLocation + "and" + imageStreamLocation);
-
             return pixInfo;
         }
 

@@ -1,0 +1,15 @@
+﻿<Window x:Class="HR_ReConstruction.Network_Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HR_ReConstruction"
+        mc:Ignorable="d"
+        Title="Network_Window" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="Import_Data_Grid" Content="Input data" HorizontalAlignment="Left" Margin="10,333,0,0" VerticalAlignment="Top" Width="125" Height="52" Click="Import_Data_Grid_Click"/>
+        <DataGrid x:Name="InputdataGrid" HorizontalAlignment="Left" Height="296" Margin="10,10,0,0" VerticalAlignment="Top" Width="125" SelectionChanged="InputdataGrid_SelectionChanged">
+        </DataGrid>
+
+    </Grid>
+</Window>

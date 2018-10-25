@@ -8,6 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Button Content="Read MNIST Database" HorizontalAlignment="Left" Margin="27,325,0,0" VerticalAlignment="Top" Width="192" Height="50" Click="Button_Click"/>
+        <Button x:Name="Network_button" Content="Network function" HorizontalAlignment="Left" Margin="27,220,0,0" VerticalAlignment="Top" Width="192" Height="50" Click="Network_button_Click"/>
 
     </Grid>
 </Window>

@@ -30,5 +30,11 @@ namespace HR_ReConstruction
             ReadDatabase ReadMNIST = new ReadDatabase();
             ReadMNIST.Show();
         }
+
+        private void Network_button_Click(object sender, RoutedEventArgs e)
+        {
+            Network_Window networkWindow = new Network_Window();
+            networkWindow.Show();
+        }
     }
 }
