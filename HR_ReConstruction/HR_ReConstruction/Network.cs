@@ -64,7 +64,11 @@ namespace HR_ReConstruction
                 layer.Weight[i] = new double[InputNodeNumber];
             }
 
+            layer.Bia =
+
             return layer;
+
+            //Note on IPAD!@!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         }
 
 
