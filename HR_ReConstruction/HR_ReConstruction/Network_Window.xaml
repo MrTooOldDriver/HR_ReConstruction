@@ -10,6 +10,8 @@
         <Button x:Name="Import_Data_Grid" Content="Input data" HorizontalAlignment="Left" Margin="10,333,0,0" VerticalAlignment="Top" Width="125" Height="52" Click="Import_Data_Grid_Click"/>
         <DataGrid x:Name="InputdataGrid" HorizontalAlignment="Left" Height="296" Margin="10,10,0,0" VerticalAlignment="Top" Width="125" SelectionChanged="InputdataGrid_SelectionChanged">
         </DataGrid>
+        <Button x:Name="Forword_Calculation_Test" Content="Run Forword calculation test" HorizontalAlignment="Left" Margin="167,333,0,0" VerticalAlignment="Top" Width="205" Height="52" Click="Button_Click"/>
+        <DataGrid x:Name="Layer_Node_Calculation_Grid" HorizontalAlignment="Left" Height="296" Margin="167,10,0,0" VerticalAlignment="Top" Width="205"/>
 
     </Grid>
 </Window>

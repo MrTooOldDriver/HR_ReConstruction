@@ -45,5 +45,18 @@ namespace HR_ReConstruction
         {
 
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            DatabaseReader database = new DatabaseReader();
+            Network network = new Network();
+            Formula formulaclass = new Formula();
+
+            byte[] fromdatabaseBytes = database.readBytes();
+            double[] fromdatabaseDoubles = formulaclass.ConvertDoubles(fromdatabaseBytes);
+            double[] NextLayer = network.MainController(fromdatabaseDoubles);
+
+            Layer_Node_Calculation_Grid.ItemsSource = network.InputData(NextLayer);
+        }
     }
 }
