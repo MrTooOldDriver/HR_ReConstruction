@@ -10,10 +10,10 @@ namespace HR_ReConstruction
     {
         public class  InputData_DataFormatClass
         {
-            public byte pixinfo_InputNode { get; set; }
+            public double pixinfo_InputNode { get; set; }
         }
 
-        public List<InputData_DataFormatClass> InputData(byte[] pixelInformation)
+        public List<InputData_DataFormatClass> InputData(double[] pixelInformation)
         {
             List<InputData_DataFormatClass> inputDataDataFormatClasses = new List<InputData_DataFormatClass>();
             
@@ -26,5 +26,15 @@ namespace HR_ReConstruction
 
             return inputDataDataFormatClasses;
         }
+
+        public void MainController(double[] Pix_info)
+        {
+            Network_Data.Layer FirstLayer = new Network_Data.Layer();
+
+            FirstLayer.Node = Pix_info;
+        }
+
+
+
     }
 }

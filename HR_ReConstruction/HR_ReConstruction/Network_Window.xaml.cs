@@ -28,8 +28,12 @@ namespace HR_ReConstruction
         {
             DatabaseReader database = new DatabaseReader();
             Network network = new Network();
+            Formula formulaclass = new Formula();
+
             byte[] fromdatabaseBytes = database.readBytes();
-            InputdataGrid.ItemsSource = network.InputData(fromdatabaseBytes);
+            double[] fromdatabaseDoubles = formulaclass.ConvertDoubles(fromdatabaseBytes);
+
+            InputdataGrid.ItemsSource = network.InputData(fromdatabaseDoubles);
         }
 
         private void Data_Grid_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -55,7 +55,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DatabaseReader.cs" />
+    <Compile Include="Formula.cs" />
     <Compile Include="Network.cs" />
+    <Compile Include="Network_Data.cs" />
     <Compile Include="Network_Window.xaml.cs">
       <DependentUpon>Network_Window.xaml</DependentUpon>
     </Compile>
