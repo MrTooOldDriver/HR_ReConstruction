@@ -30,21 +30,20 @@ namespace HR_ReConstruction
 
         public double[] MainController(double[] Pix_info)
         {
-            Network_Data.Layer FirstLayer = new Network_Data.Layer();
             Formula formulaClass = new Formula();
+
+            Network_Data.Layer FirstLayer = InitLayer(784,16);
+
             FirstLayer.Node = Pix_info;           
-            FirstLayer.Weight = new double[16][]; //16 is the number of second layer nodes
-
-            for (int i = 0; i < FirstLayer.Weight.Length; i++)
-            {
-                FirstLayer.Weight[i] = formulaClass.Inital_Number_Weights(784);
-            }
-
-            FirstLayer.Bia = formulaClass.Inital_Number_Weights(16);//Use random weight function to give some random bias
 
             FirstLayer.NextLayerNode = formulaClass.Forword_Calculation(FirstLayer.Node, FirstLayer.Weight, FirstLayer.Bia);
 
+
+
+
             return FirstLayer.NextLayerNode;
+
+            
         }
 
 
@@ -59,16 +58,15 @@ namespace HR_ReConstruction
 
             layer.Weight = new double[OutputNodeNumber][];
 
-            for (int i = 0; i < layer.Weight.Length-1; i++)
+            for (int i = 0; i < layer.Weight.Length; i++)
             {
                 layer.Weight[i] = new double[InputNodeNumber];
+                layer.Weight[i] = formulaClass.Inital_Number_Weights(InputNodeNumber);
             }
 
-            layer.Bia =
+            layer.Bia = formulaClass.Inital_Number_Bias(OutputNodeNumber);
 
             return layer;
-
-            //Note on IPAD!@!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         }
 
 

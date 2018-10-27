@@ -53,9 +53,19 @@ namespace HR_ReConstruction
         public double[] Inital_Number_Weights(int Length)
         {
             double[] outputDoubles = new double[Length];
-            for (int i = 0; i < outputDoubles.Length-1; i++)
+            for (int i = 0; i < outputDoubles.Length; i++)
             {
                 outputDoubles[i] = (RandomNumber_Positive_Negative());
+            }
+            return outputDoubles;
+        }
+
+        public double[] Inital_Number_Bias(int Length)
+        {
+            double[] outputDoubles = new double[Length];
+            for (int i = 0; i < outputDoubles.Length; i++)
+            {
+                outputDoubles[i] = (RandomNumber_Positive_Large());
             }
             return outputDoubles;
         }
