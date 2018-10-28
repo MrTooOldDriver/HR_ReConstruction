@@ -41,18 +41,22 @@ namespace HR_ReConstruction
                 formulaClass.Forword_Calculation(FirstLayer.Node, FirstLayer.Weight, FirstLayer.Bia);
 
             Network_Data.Layer SecondLayer = InitLayer(16, 16);
-            SecondLayer.Node = FirstLayer.NextLayerNode;
+            SecondLayer.Node = FirstLayer.NextLayerNode[1];
             SecondLayer.NextLayerNode =
                 formulaClass.Forword_Calculation(SecondLayer.Node, SecondLayer.Weight, SecondLayer.Bia);
 
             Network_Data.Layer OutputLayer = InitLayer(16, 10);
-            OutputLayer.Node = SecondLayer.NextLayerNode;
+            OutputLayer.Node = SecondLayer.NextLayerNode[1];
             OutputLayer.NextLayerNode =
                 formulaClass.Forword_Calculation(OutputLayer.Node, OutputLayer.Weight, OutputLayer.Bia);
-      
-            return OutputLayer.NextLayerNode;
 
-            
+            double[] ExpectOutput = GenerateExpectLayer(LableNumber);
+
+            double[] CostFunction = Cost_Function(OutputLayer.NextLayerNode[1], ExpectOutput);
+
+
+            return CostFunction;
+   
         }
 
 
@@ -63,8 +67,7 @@ namespace HR_ReConstruction
 
             layer.Node = new double[InputNodeNumber];
             layer.Bia = new double[OutputNodeNumber];
-            layer.NextLayerNode = new double[OutputNodeNumber];
-
+            //layer.NextLayerNode = new double[OutputNodeNumber][];
             layer.Weight = new double[OutputNodeNumber][];
 
             for (int i = 0; i < layer.Weight.Length; i++)
@@ -72,6 +75,7 @@ namespace HR_ReConstruction
                 layer.Weight[i] = new double[InputNodeNumber];
                 layer.Weight[i] = formulaClass.Inital_Number_Weights(InputNodeNumber);
             }
+
 
             layer.Bia = formulaClass.Inital_Number_Bias(OutputNodeNumber);
 
@@ -92,7 +96,34 @@ namespace HR_ReConstruction
             return outputInfo;
         }
 
+        public double[] Cost_Function(double[] OutputLayer, double[] ExpectOutputLater)
+        {
+            double[] OutputCostFunction = new double[OutputLayer.Length];
+            for (int i = 0; i < OutputLayer.Length; i++)
+            {
+                OutputCostFunction[i] = Math.Pow(OutputLayer[i] - ExpectOutputLater[i], 2);
+            }
 
+            return OutputCostFunction;
+        }
+
+        public double[] GenerateExpectLayer(double lable)
+        {
+            double[] outputDoubles = new double[10];
+            for (int i = 0; i < outputDoubles.Length-1; i++)
+            {
+                if (i == lable-1)
+                {
+                    outputDoubles[i] = 1;
+                }
+                else
+                {
+                    outputDoubles[i] = 0;
+                }
+            }
+
+            return outputDoubles;
+        }
 
     }
 }

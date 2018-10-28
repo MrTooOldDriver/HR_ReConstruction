@@ -19,6 +19,12 @@ namespace HR_ReConstruction
             return output;
         }
 
+        public double Derivative_Sigmoid(double input)
+        {
+            double output = Sigmoid(input) * (1 - Sigmoid(input));
+            return output;
+        }
+
         private static Random rng = new Random();
 
         public double RandomNumber_Positive_Large()
@@ -70,20 +76,40 @@ namespace HR_ReConstruction
             return outputDoubles;
         }
 
-        public double[] Forword_Calculation(double[] Node, double[][] Weight, double[] Bia)
+        public double[][] Forword_Calculation(double[] Node, double[][] Weight, double[] Bia)
         {
-            double[] outputDoubles = new double[Weight.Length];
+            double[] SigmoidResult = new double[Weight.Length];
+            double[] NoSigmoidResult = new double[Weight.Length];
+            double[][] finalDoubles = new double[2][];
+
             for (int i = 0; i < Weight.Length; i++)
             {
                 for (int j = 0; j < Node.Length; j++)
                 {
-                    outputDoubles[i] = outputDoubles[i] + (Node[j] * Weight[i][j]);
+                    SigmoidResult[i] = SigmoidResult[i] + (Node[j] * Weight[i][j]);
                 }
             }
 
             for (int k = 0; k < Bia.Length; k++)
             {
-                outputDoubles[k] = Sigmoid(outputDoubles[k] + Bia[k]);
+                NoSigmoidResult[k] = SigmoidResult[k] + Bia[k];
+                SigmoidResult[k] = Sigmoid(SigmoidResult[k] + Bia[k]);
+            }
+
+            finalDoubles[0] = NoSigmoidResult;
+            finalDoubles[1] = SigmoidResult;
+
+            return finalDoubles;
+        }
+
+        public double[] Common_Derivative_Calculation(double[] NoSigmoidResult, double[] SigmoidResult,
+            double[] ExpectResult)
+        {
+            double[] outputDoubles = new double[NoSigmoidResult.Length];
+            for (int i = 0; i < NoSigmoidResult.Length; i++)
+            {
+                outputDoubles[i] = (2 * (SigmoidResult[i] - ExpectResult[i])) *
+                                   (Derivative_Sigmoid(NoSigmoidResult[i]));
             }
 
             return outputDoubles;

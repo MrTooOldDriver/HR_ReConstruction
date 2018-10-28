@@ -14,10 +14,12 @@ namespace HR_ReConstruction
             public double[] Node;
             public double[][] Weight;
             public double[] Bia;
-            public double[] NextLayerNode;
+            public double[][] NextLayerNode; 
+            //[0] To access NoSigmoidResult double[], [1] To access SigmoidResult double[];
+            public double Common_Derivative;
         }
 
-        public class InputPixInfo
+        public class InputPixInfo //could simplefity?
         {
             public double[] PixInfo;
             public double LableNumber;
