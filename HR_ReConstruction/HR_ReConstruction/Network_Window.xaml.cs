@@ -54,9 +54,9 @@ namespace HR_ReConstruction
 
             byte[] fromdatabaseBytes = database.readBytes();
             double[] fromdatabaseDoubles = formulaclass.ConvertDoubles(fromdatabaseBytes);
-            double[] NextLayer = network.MainController(fromdatabaseDoubles);
+            double[] OutputLayer = network.MainController(fromdatabaseDoubles);
 
-            Layer_Node_Calculation_Grid.ItemsSource = network.InputData(NextLayer);
+            Layer_Node_Calculation_Grid.ItemsSource = network.InputData(OutputLayer);
         }
     }
 }

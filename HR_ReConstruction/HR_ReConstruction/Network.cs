@@ -32,16 +32,25 @@ namespace HR_ReConstruction
         {
             Formula formulaClass = new Formula();
 
+            Network_Data.InputPixInfo TrueInput = Pix_Lable_Separation(Pix_info);
+            double LableNumber = TrueInput.LableNumber;
+
             Network_Data.Layer FirstLayer = InitLayer(784,16);
+            FirstLayer.Node = TrueInput.PixInfo;           
+            FirstLayer.NextLayerNode = 
+                formulaClass.Forword_Calculation(FirstLayer.Node, FirstLayer.Weight, FirstLayer.Bia);
 
-            FirstLayer.Node = Pix_info;           
+            Network_Data.Layer SecondLayer = InitLayer(16, 16);
+            SecondLayer.Node = FirstLayer.NextLayerNode;
+            SecondLayer.NextLayerNode =
+                formulaClass.Forword_Calculation(SecondLayer.Node, SecondLayer.Weight, SecondLayer.Bia);
 
-            FirstLayer.NextLayerNode = formulaClass.Forword_Calculation(FirstLayer.Node, FirstLayer.Weight, FirstLayer.Bia);
-
-
-
-
-            return FirstLayer.NextLayerNode;
+            Network_Data.Layer OutputLayer = InitLayer(16, 10);
+            OutputLayer.Node = SecondLayer.NextLayerNode;
+            OutputLayer.NextLayerNode =
+                formulaClass.Forword_Calculation(OutputLayer.Node, OutputLayer.Weight, OutputLayer.Bia);
+      
+            return OutputLayer.NextLayerNode;
 
             
         }
@@ -67,6 +76,20 @@ namespace HR_ReConstruction
             layer.Bia = formulaClass.Inital_Number_Bias(OutputNodeNumber);
 
             return layer;
+        }
+
+        public Network_Data.InputPixInfo Pix_Lable_Separation(double[] FromDatabaseReader)
+        {
+            Network_Data.InputPixInfo outputInfo = new Network_Data.InputPixInfo();
+            outputInfo.PixInfo = new double[FromDatabaseReader.Length-1];
+            for (int i = 0; i < outputInfo.PixInfo.Length; i++)
+            {
+                outputInfo.PixInfo[i] = FromDatabaseReader[i];
+            }
+
+            outputInfo.LableNumber = FromDatabaseReader[FromDatabaseReader.Length-1];
+
+            return outputInfo;
         }
 
 

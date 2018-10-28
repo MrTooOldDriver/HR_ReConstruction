@@ -41,8 +41,8 @@ namespace HR_ReConstruction
 
         public double[] ConvertDoubles(byte[] inputBytes)
         {
-            double[] output = new double[inputBytes.Length-1];
-            for (int i = 0; i < inputBytes.Length-1; i++)
+            double[] output = new double[inputBytes.Length];
+            for (int i = 0; i < inputBytes.Length; i++)
             {
                 output[i] = Convert.ToDouble(inputBytes[i]);
             }

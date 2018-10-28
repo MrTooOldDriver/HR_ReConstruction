@@ -16,5 +16,11 @@ namespace HR_ReConstruction
             public double[] Bia;
             public double[] NextLayerNode;
         }
+
+        public class InputPixInfo
+        {
+            public double[] PixInfo;
+            public double LableNumber;
+        }
     }
 }
