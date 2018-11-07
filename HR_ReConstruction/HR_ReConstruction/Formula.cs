@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 
 namespace HR_ReConstruction
@@ -102,7 +103,7 @@ namespace HR_ReConstruction
             return finalDoubles;
         }
 
-        public double[] Common_Derivative_Calculation(double[] NoSigmoidResult, double[] SigmoidResult,
+        public double[] Common_Derivative_Output_Layer(double[] NoSigmoidResult, double[] SigmoidResult,
             double[] ExpectResult)
         {
             double[] outputDoubles = new double[NoSigmoidResult.Length];
@@ -110,6 +111,64 @@ namespace HR_ReConstruction
             {
                 outputDoubles[i] = (2 * (SigmoidResult[i] - ExpectResult[i])) *
                                    (Derivative_Sigmoid(NoSigmoidResult[i]));
+            }
+
+            return outputDoubles;
+        }
+
+        public double[] Bia_Differentiation(double[] Common_Derivative)
+        {
+            double[] outputDoubles= new double[Common_Derivative.Length];
+            for (int i = 0; i < Common_Derivative.Length; i++)
+            {
+                outputDoubles[i] = Common_Derivative[i];
+            }
+
+            return outputDoubles;
+
+        }
+
+        public double[][] Weight_Differentiation(double[] Common_Derivative,double[] Input_Lyaer)
+        {
+            //Common_Derivative.Length = Output Layer Node Number
+            //Input_Lyaer.Length = Input Layer Node Number
+
+            double[][] outputDoubles = new double[Common_Derivative.Length][];
+            for (int i = 0; i < Common_Derivative.Length; i++)
+            {
+                outputDoubles[i] = new double[Input_Lyaer.Length];
+            }
+            for (int j = 0; j < Common_Derivative.Length; j++)
+            {
+                for (int k = 0; k < Input_Lyaer.Length; k++)
+                {
+                    outputDoubles[j][k] = Common_Derivative[j] * Input_Lyaer[k];
+                }
+            }
+
+            return outputDoubles;
+        }
+
+        public double[] Input_Layer_Differentiation(double[] Common_Derivative,double[][] weight)
+        {
+            double[] outputDoubles = new double[Common_Derivative.Length];
+            for (int i = 0; i < Common_Derivative.Length; i++)
+            {
+                for (int j = 0; j < weight.Length; j++)
+                {
+                    outputDoubles[i] += Common_Derivative[j] * weight[j][i]; //Important +=
+                }
+            }
+
+            return outputDoubles;
+        }
+
+        public double[] Common_Derivative_Hidden_Layer(double[] Derivative_From_Last_Input_Layer)
+        {
+            double[] outputDoubles = new double[Derivative_From_Last_Input_Layer.Length];
+            for (int i = 0; i < Derivative_From_Last_Input_Layer.Length; i++)
+            {
+                outputDoubles[i] = Derivative_Sigmoid(Derivative_From_Last_Input_Layer[i]);
             }
 
             return outputDoubles;
