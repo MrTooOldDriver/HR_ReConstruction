@@ -22,7 +22,7 @@ namespace HR_ReConstruction
 
         public double Derivative_Sigmoid(double input)
         {
-            double output = Sigmoid(input) * (1 - Sigmoid(input));
+            double output = (Sigmoid(input) * (1 - Sigmoid(input)));
             return output;
         }
 
@@ -31,6 +31,9 @@ namespace HR_ReConstruction
         public double RandomNumber_Positive_Large()
         {
             double output = rng.Next(0, 100);
+
+            output = output * 0.001f;//Adjuct Bia to a smaller number*
+
             return output;
         }
 
@@ -42,6 +45,9 @@ namespace HR_ReConstruction
             {
                 output = output*-1;
             }
+
+            output = output * 0.001f;//Adjuct Weight to a smaller number*
+
             return output;
             //Random Number Test Pass
         }
@@ -107,10 +113,13 @@ namespace HR_ReConstruction
             double[] ExpectResult)
         {
             double[] outputDoubles = new double[NoSigmoidResult.Length];
+            double Derivative;
             for (int i = 0; i < NoSigmoidResult.Length; i++)
             {
-                outputDoubles[i] = (2 * (SigmoidResult[i] - ExpectResult[i])) *
-                                   (Derivative_Sigmoid(NoSigmoidResult[i]));
+
+                Derivative = Derivative_Sigmoid(NoSigmoidResult[i]);
+                outputDoubles[i] = (2 * (SigmoidResult[i] - ExpectResult[i])) * Derivative;
+
             }
 
             return outputDoubles;
@@ -151,8 +160,8 @@ namespace HR_ReConstruction
 
         public double[] Input_Layer_Differentiation(double[] Common_Derivative,double[][] weight)
         {
-            double[] outputDoubles = new double[Common_Derivative.Length];
-            for (int i = 0; i < Common_Derivative.Length; i++)
+            double[] outputDoubles = new double[weight[0].Length];
+            for (int i = 0; i < weight[0].Length; i++)
             {
                 for (int j = 0; j < weight.Length; j++)
                 {

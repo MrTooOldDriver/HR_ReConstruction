@@ -16,7 +16,10 @@ namespace HR_ReConstruction
             public double[] Bia;
             public double[][] NextLayerNode; 
             //[0] To access NoSigmoidResult double[], [1] To access SigmoidResult double[];
-            public double Common_Derivative;
+            public double[] Common_Derivative;
+            public double[][] De_Weight;
+            public double[] De_Bia;
+            public double[] De_Node;
         }
 
         public class InputPixInfo //could simplefity?

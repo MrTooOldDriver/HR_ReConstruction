@@ -23,7 +23,7 @@ namespace HR_ReConstruction
                 InputData_DataFormatClass tem = new InputData_DataFormatClass();
                 tem.pixinfo_InputNode = pixelInformation[i];
                 inputDataDataFormatClasses.Add(tem);
-            }
+            } 
 
             return inputDataDataFormatClasses;
         }
@@ -34,6 +34,8 @@ namespace HR_ReConstruction
 
             Network_Data.InputPixInfo TrueInput = Pix_Lable_Separation(Pix_info);
             double LableNumber = TrueInput.LableNumber;
+            
+            //Initial Network Layers
 
             Network_Data.Layer FirstLayer = InitLayer(784,16);
             FirstLayer.Node = TrueInput.PixInfo;           
@@ -49,11 +51,39 @@ namespace HR_ReConstruction
             OutputLayer.Node = SecondLayer.NextLayerNode[1];
             OutputLayer.NextLayerNode =
                 formulaClass.Forword_Calculation(OutputLayer.Node, OutputLayer.Weight, OutputLayer.Bia);
+            //Initial Network Layers Complete
 
+            //Result Check 
             double[] ExpectOutput = GenerateExpectLayer(LableNumber);
 
             double[] CostFunction = Cost_Function(OutputLayer.NextLayerNode[1], ExpectOutput);
+            //Result Check Finished 
 
+            //Backpropagation
+            OutputLayer.Common_Derivative=formulaClass.Common_Derivative_Output_Layer(OutputLayer.NextLayerNode[0], OutputLayer.NextLayerNode[1],
+                ExpectOutput);
+
+            OutputLayer.De_Bia = formulaClass.Bia_Differentiation(OutputLayer.Common_Derivative);
+            OutputLayer.De_Weight =
+                formulaClass.Weight_Differentiation(OutputLayer.Common_Derivative, OutputLayer.Node);
+            OutputLayer.De_Node =
+                formulaClass.Input_Layer_Differentiation(OutputLayer.Common_Derivative, OutputLayer.Weight);
+
+            SecondLayer.Common_Derivative = formulaClass.Common_Derivative_Hidden_Layer(OutputLayer.De_Node);
+            SecondLayer.De_Bia = formulaClass.Bia_Differentiation(SecondLayer.Common_Derivative);
+            SecondLayer.De_Weight =
+                formulaClass.Weight_Differentiation(SecondLayer.Common_Derivative, SecondLayer.Node);
+            SecondLayer.De_Node =
+                formulaClass.Input_Layer_Differentiation(SecondLayer.Common_Derivative, SecondLayer.Weight);
+
+            FirstLayer.Common_Derivative = formulaClass.Common_Derivative_Hidden_Layer(SecondLayer.De_Node);
+            FirstLayer.De_Bia = formulaClass.Bia_Differentiation(FirstLayer.Common_Derivative);
+            FirstLayer.De_Weight =
+                formulaClass.Weight_Differentiation(FirstLayer.Common_Derivative, FirstLayer.Node);
+            FirstLayer.De_Node =
+                formulaClass.Input_Layer_Differentiation(FirstLayer.Common_Derivative, FirstLayer.Weight);
+
+            //adjust all layer method
 
             return CostFunction;
    
