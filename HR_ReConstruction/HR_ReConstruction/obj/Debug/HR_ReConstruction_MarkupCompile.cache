@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Hantao Zhong\Documents\GitHub\HR_ReConstruction\HR_ReConstruction\HR_ReConstruction\obj\Debug\
+C:\Users\moon9\Desktop\HR_ReConstruction\HR_ReConstruction\HR_ReConstruction\obj\Debug\
 HR_ReConstruction
 none
 false
 DEBUG;TRACE
-C:\Users\Hantao Zhong\Documents\GitHub\HR_ReConstruction\HR_ReConstruction\HR_ReConstruction\App.xaml
+C:\Users\moon9\Desktop\HR_ReConstruction\HR_ReConstruction\HR_ReConstruction\App.xaml
 3976079986
 
 111188152422
 131569487696
 MainWindow.xaml;Network_Window.xaml;ReadDatabase.xaml;
 
-False
+True
 

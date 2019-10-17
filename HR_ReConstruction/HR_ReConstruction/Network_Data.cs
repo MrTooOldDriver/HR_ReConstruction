@@ -27,5 +27,12 @@ namespace HR_ReConstruction
             public double[] PixInfo;
             public double LableNumber;
         }
+
+        public class NeuralNetwork
+        {
+            public Layer FirstLayer;
+            public Layer SecondLayer;
+            public Layer OutputLayer;
+        }
     }
 }

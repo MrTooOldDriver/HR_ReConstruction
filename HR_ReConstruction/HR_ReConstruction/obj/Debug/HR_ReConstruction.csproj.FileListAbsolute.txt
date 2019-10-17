@@ -40,3 +40,23 @@ C:\Users\Hantao Zhong\Documents\GitHub\HR_ReConstruction\HR_ReConstruction\HR_Re
 C:\Users\Hantao Zhong\Documents\GitHub\HR_ReConstruction\HR_ReConstruction\HR_ReConstruction\obj\Debug\HR_ReConstruction.csproj.CoreCompileInputs.cache
 C:\Users\Hantao Zhong\Documents\GitHub\HR_ReConstruction\HR_ReConstruction\HR_ReConstruction\obj\Debug\HR_ReConstruction.exe
 C:\Users\Hantao Zhong\Documents\GitHub\HR_ReConstruction\HR_ReConstruction\HR_ReConstruction\obj\Debug\HR_ReConstruction.pdb
+C:\Users\moon9\Desktop\HR_ReConstruction\HR_ReConstruction\HR_ReConstruction\bin\Debug\train-images.idx3-ubyte
+C:\Users\moon9\Desktop\HR_ReConstruction\HR_ReConstruction\HR_ReConstruction\bin\Debug\train-labels.idx1-ubyte
+C:\Users\moon9\Desktop\HR_ReConstruction\HR_ReConstruction\HR_ReConstruction\bin\Debug\HR_ReConstruction.exe.config
+C:\Users\moon9\Desktop\HR_ReConstruction\HR_ReConstruction\HR_ReConstruction\bin\Debug\HR_ReConstruction.exe
+C:\Users\moon9\Desktop\HR_ReConstruction\HR_ReConstruction\HR_ReConstruction\bin\Debug\HR_ReConstruction.pdb
+C:\Users\moon9\Desktop\HR_ReConstruction\HR_ReConstruction\HR_ReConstruction\obj\Debug\HR_ReConstruction.csprojAssemblyReference.cache
+C:\Users\moon9\Desktop\HR_ReConstruction\HR_ReConstruction\HR_ReConstruction\obj\Debug\MainWindow.g.cs
+C:\Users\moon9\Desktop\HR_ReConstruction\HR_ReConstruction\HR_ReConstruction\obj\Debug\Network_Window.g.cs
+C:\Users\moon9\Desktop\HR_ReConstruction\HR_ReConstruction\HR_ReConstruction\obj\Debug\ReadDatabase.g.cs
+C:\Users\moon9\Desktop\HR_ReConstruction\HR_ReConstruction\HR_ReConstruction\obj\Debug\App.g.cs
+C:\Users\moon9\Desktop\HR_ReConstruction\HR_ReConstruction\HR_ReConstruction\obj\Debug\HR_ReConstruction_MarkupCompile.cache
+C:\Users\moon9\Desktop\HR_ReConstruction\HR_ReConstruction\HR_ReConstruction\obj\Debug\HR_ReConstruction_MarkupCompile.lref
+C:\Users\moon9\Desktop\HR_ReConstruction\HR_ReConstruction\HR_ReConstruction\obj\Debug\MainWindow.baml
+C:\Users\moon9\Desktop\HR_ReConstruction\HR_ReConstruction\HR_ReConstruction\obj\Debug\Network_Window.baml
+C:\Users\moon9\Desktop\HR_ReConstruction\HR_ReConstruction\HR_ReConstruction\obj\Debug\ReadDatabase.baml
+C:\Users\moon9\Desktop\HR_ReConstruction\HR_ReConstruction\HR_ReConstruction\obj\Debug\HR_ReConstruction.g.resources
+C:\Users\moon9\Desktop\HR_ReConstruction\HR_ReConstruction\HR_ReConstruction\obj\Debug\HR_ReConstruction.Properties.Resources.resources
+C:\Users\moon9\Desktop\HR_ReConstruction\HR_ReConstruction\HR_ReConstruction\obj\Debug\HR_ReConstruction.csproj.GenerateResource.cache
+C:\Users\moon9\Desktop\HR_ReConstruction\HR_ReConstruction\HR_ReConstruction\obj\Debug\HR_ReConstruction.exe
+C:\Users\moon9\Desktop\HR_ReConstruction\HR_ReConstruction\HR_ReConstruction\obj\Debug\HR_ReConstruction.pdb

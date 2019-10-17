@@ -28,14 +28,21 @@ namespace HR_ReConstruction
             return inputDataDataFormatClasses;
         }
 
+        Formula formulaClass = new Formula();
+
         public double[] MainController(double[] Pix_info)
         {
-            Formula formulaClass = new Formula();
-
+            //Grab Input
             Network_Data.InputPixInfo TrueInput = Pix_Lable_Separation(Pix_info);
             double LableNumber = TrueInput.LableNumber;
-            
+
             //Initial Network Layers
+
+            Network_Data.NeuralNetwork NeuralNetwork = initNeuralNetwork();
+            // Rewrite function
+
+
+
 
             Network_Data.Layer FirstLayer = InitLayer(784,16);
             FirstLayer.Node = TrueInput.PixInfo;           
@@ -84,6 +91,7 @@ namespace HR_ReConstruction
                 formulaClass.Input_Layer_Differentiation(FirstLayer.Common_Derivative, FirstLayer.Weight);
 
             //adjust all layer method
+
 
             return CostFunction;
    
@@ -142,7 +150,7 @@ namespace HR_ReConstruction
             double[] outputDoubles = new double[10];
             for (int i = 0; i < outputDoubles.Length-1; i++)
             {
-                if (i == lable-1)
+                if (i == lable)
                 {
                     outputDoubles[i] = 1;
                 }
@@ -153,6 +161,15 @@ namespace HR_ReConstruction
             }
 
             return outputDoubles;
+        }
+
+        public Network_Data.NeuralNetwork initNeuralNetwork()
+        {
+            Network_Data.NeuralNetwork inputNeuralNetwork = new Network_Data.NeuralNetwork();
+            inputNeuralNetwork.FirstLayer = InitLayer(784, 16);
+            inputNeuralNetwork.SecondLayer = InitLayer(16, 16);
+            inputNeuralNetwork.OutputLayer = InitLayer(16, 10);
+            return inputNeuralNetwork;
         }
 
     }
