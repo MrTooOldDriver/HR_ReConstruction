@@ -13,5 +13,7 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 2.2.108
+    - name: cd dir
+      run: cd ./HR_ReConstruction
     - name: Build with dotnet
-      run: dotnet build --configuration Release --source ./HR_ReConstruction
+      run: dotnet build --configuration Release
